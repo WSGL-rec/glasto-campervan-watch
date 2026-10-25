@@ -9,6 +9,10 @@ on:
         description: "Send a test alert instead of checking"
         type: boolean
         default: false
+      simulate_update:
+        description: "Send a realistic simulated campervan alert"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -33,6 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TEST_ALERT: ${{ inputs.test_alert && '1' || '0' }}
+          SIMULATE_UPDATE: ${{ inputs.simulate_update && '1' || '0' }}
         run: python check.py
 
       - name: Save what has been seen

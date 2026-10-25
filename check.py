@@ -144,6 +144,25 @@ def main():
         )
         return
 
+    if os.environ.get("SIMULATE_UPDATE") == "1":
+        # Runs the real alert path with a made-up post; nothing is saved.
+        alert(
+            {},
+            "simulated",
+            "[SIMULATED] Accommodation goes on sale Thursday 12th November",
+            [
+                "⚠️ **SIMULATED TEST – this is not a real announcement.** "
+                "A real alert will look exactly like this.",
+                "",
+                f"**New post:** [Accommodation goes on sale Thursday 12th November]({NEWS_URL})",
+                "",
+                "> For those who secured a Glastonbury 2027 ticket in the sales earlier this month, "
+                "bookings for caravan/campervan tickets, onsite tipis and the official offsite "
+                "pre-erected campsites will open at 12 noon (GMT) on Thursday 12th November.",
+            ],
+        )
+        return
+
     first_run = "seen" not in state
 
     try:
