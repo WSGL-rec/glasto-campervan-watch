@@ -1,4 +1,7 @@
 {
+  "alerted": [
+    "info:wording-changed"
+  ],
   "info_baseline": 8,
   "seen": [
     "be-safe-in-the-heat-2",
